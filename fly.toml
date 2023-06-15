@@ -1,0 +1,26 @@
+# fly.toml app configuration file generated for lively-nightscout-librelink-up on 2023-06-08T13:12:19-05:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "lively-nightscout-librelink-up"
+primary_region = "dfw"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 0
+
+[env]
+	LINK_UP_REGION="US"
+	LINK_UP_USERNAME="davidlively@gmail.com"
+	LINK_UP_PASSWORD="!Scflead0"
+	LINK_UP_TIME_INTERVAL="3"
+	NIGHTSCOUT_URL="lively.my.nightscoutpro.com"
+# use `shasum` instead of `sha1sum` on Mac
+	NIGHTSCOUT_API_TOKEN="8416acdc6600261fde65106f4e8981f8d97c5b80"
+	#NIGHTSCOUT_API_TOKEN="b21a6a616824a62b62c1699f26d1a45ca7b116cc"
+	#NIGHTSCOUT_API_TOKEN=$(echo -n "libre-78acfb443717be6c" | sha1sum | cut -d ' ' -f 1)
+	LOG_LEVEL="info"
